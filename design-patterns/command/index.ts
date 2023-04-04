@@ -46,14 +46,10 @@ class EditCommand implements Command{
 }
 
 class Invoker{
-    private list:Command[] = new Array<Command>()
+    private list = new Array<Command>()
     
     onExecuteCommand(command: Command){
-        if(this.list == undefined){
-            this.list = [command]
-        }else{
-            this.list.push(command)
-        }
+        this.list.push(command)
         return command.execute();
     }
     getCommandList() : Command[]{
